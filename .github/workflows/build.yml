@@ -32,8 +32,7 @@ jobs:
           - nvidia_version: 535
             is_latest_nvidia: true
     steps: 
-      # Checkout push-to-registry action GitHub repository
-      - name: Checkout Push to Registry action
+      - name: checkout
         uses: actions/checkout@v4
 
       - name: Matrix Variables
@@ -148,8 +147,8 @@ jobs:
           file: Containerfile
           push: true
           tags: ${{ steps.generate-tags.outputs.alias_tags }}
-          cache-from: ghcr.io/smerschjohann/cache
-          cache-to: ghcr.io/smerschjohann/cache
+          cache-from: ghcr.io/smerschjohann/kino/cache
+          cache-to: ghcr.io/smerschjohann/kino/cache
           labels: ${{ steps.meta.outputs.labels }}
           target: ${{ matrix.image_flavor }}
           build-args: |
