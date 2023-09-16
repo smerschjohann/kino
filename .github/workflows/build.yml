@@ -95,11 +95,14 @@ jobs:
               done
               alias_tags=("${COMMIT_TAGS[@]}")
           else
-              alias_tags=("${BUILD_TAGS[@]}")
+              for tag in "${BUILD_TAGS[@]}"; do
+                alias_tags+=("ghcr.io/smerschjohann/kino/${IMAGE_NAME}:${tag}")
+              done
+
           fi
 
           echo "Generated the following build tags: "
-          for TAG in "${BUILD_TAGS[@]}"; do
+          for TAG in "${alias_tags[@]}"; do
               echo "${TAG}"
           done
 
@@ -140,6 +143,7 @@ jobs:
           cache-from: ghcr.io/smerschjohann/cache
           cache-to: ghcr.io/smerschjohann/cache
           labels: ${{ steps.meta.outputs.labels }}
+          target: ${{ matrix.image_flavor }}
           build-args: |
             IMAGE_NAME=${{ matrix.image_name }}
             SOURCE_IMAGE=${{ env.SOURCE_IMAGE }}
