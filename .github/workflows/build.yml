@@ -1,5 +1,8 @@
 name: build-kino
 on:
+  push:
+    branches:
+      - main
   pull_request:
   merge_group:    
   schedule:
