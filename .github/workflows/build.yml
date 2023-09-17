@@ -145,7 +145,7 @@ jobs:
           file: Containerfile
           push: true
           tags: ${{ steps.generate-tags.outputs.alias_tags }}
-          cache-from: ghcr.io/smerschjohann/kino/${{ matrix.image_name }}:${{ matrix.major_version }}
+          cache-from: ghcr.io/smerschjohann/kino/${{ env.IMAGE_NAME }}:${{ matrix.major_version }}git 
           labels: ${{ steps.meta.outputs.labels }}
           target: ${{ matrix.image_flavor }}
           build-args: |
