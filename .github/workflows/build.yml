@@ -24,13 +24,11 @@ jobs:
       matrix:
         image_flavor: [main]
         image_name: [kinoite]
-        major_version: [38]
+        major_version: [38,39]
         include:
           - major_version: 38
             is_latest_version: true
             is_stable_version: true
-          - nvidia_version: 535
-            is_latest_nvidia: true
     steps: 
       - name: checkout
         uses: actions/checkout@v4
