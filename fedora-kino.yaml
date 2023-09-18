@@ -1,0 +1,27 @@
+include: fedora-kinoite.yaml
+ref: fedora/39/${basearch}/kino
+rojig:
+  name: fedora-kde
+  summary: "Fedora Kino (KDE Kinoite Remix)"
+  license: MIT
+packages:
+  - kio-admin
+  - distrobox
+  - fzf
+  - zsh
+  - vim
+  - tmux
+  - p7zip
+  - zstd
+  - btop
+  - jq
+  - just
+  - golang
+  - code
+  - podman-compose
+  - tcpdump
+
+repos:
+  - fedora-39
+  - fedora-39-updates
+  - code

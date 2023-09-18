@@ -60,7 +60,7 @@ packages:
   - fedora-workstation-repositories
   - file
   - filesystem
-  - firefox
+#  - firefox
   - firewalld
   - fpaste
   - fros-gnome
